@@ -52,8 +52,9 @@ main {
 
 .name-blocks {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
+  align-items: start; /* adjust card heights to content */
 }
 
 /* Name Card */
@@ -76,14 +77,9 @@ main {
   margin-bottom: 12px;
 }
 
-.subtitle {
-  font-size: 0.95em;
-  color: #4a5568;
-  margin-bottom: 10px;
-}
-
+/* Numbered List Style */
 .name-list {
-  list-style: disc;
+  list-style-type: decimal;
   margin-left: 20px;
   font-size: 1em;
 }
