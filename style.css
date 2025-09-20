@@ -1,11 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f6fbff;
-    color: #1a2b33;
-}
-
-header {/* Reset & Base */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +7,7 @@ header {/* Reset & Base */
 
 body {
   font-family: "Inter", Arial, sans-serif;
-  background: linear-gradient(135deg, #f3f6fa, #e8ecf5);
+  background: linear-gradient(135deg, #f8fafc, #edf2f7);
   color: #1a2b33;
   line-height: 1.6;
   padding-bottom: 60px; /* prevent footer overlap */
@@ -52,9 +45,12 @@ header p {
 
 /* Main container */
 main {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 50px auto;
   padding: 0 20px;
+}
+
+.name-blocks {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
@@ -92,17 +88,17 @@ main {
   font-size: 1em;
 }
 
-/* Color variations for 10 boxes */
-.card:nth-child(1) { background: #fef3c7; }  /* light amber */
-.card:nth-child(2) { background: #e0f2fe; }  /* light sky blue */
-.card:nth-child(3) { background: #ede9fe; }  /* light indigo */
-.card:nth-child(4) { background: #fce7f3; }  /* light pink */
-.card:nth-child(5) { background: #dcfce7; }  /* light emerald */
-.card:nth-child(6) { background: #f1f5f9; }  /* light gray */
-.card:nth-child(7) { background: #fff7ed; }  /* light orange */
-.card:nth-child(8) { background: #e0f7fa; }  /* light cyan */
-.card:nth-child(9) { background: #f9f5ff; }  /* light violet */
-.card:nth-child(10) { background: #fef9c3; } /* light yellow */
+/* 10 Light Color Variations */
+.card:nth-child(1) { background: #fef3c7; }
+.card:nth-child(2) { background: #e0f2fe; }
+.card:nth-child(3) { background: #ede9fe; }
+.card:nth-child(4) { background: #fce7f3; }
+.card:nth-child(5) { background: #dcfce7; }
+.card:nth-child(6) { background: #f1f5f9; }
+.card:nth-child(7) { background: #fff7ed; }
+.card:nth-child(8) { background: #e0f7fa; }
+.card:nth-child(9) { background: #f9f5ff; }
+.card:nth-child(10) { background: #fef9c3; }
 
 /* Footer */
 footer {
@@ -115,62 +111,3 @@ footer {
   bottom: 0;
   font-size: 0.9em;
 }
-
-    background: #228b22;
-    color: #fff;
-    padding: 2em 0 1em 0;
-    text-align: center;
-}
-
-h1 {
-    margin: 0;
-    font-size: 2.5em;
-    letter-spacing: 1px;
-}
-
-h2 {
-    margin: 10px 0;
-    font-size: 1.3em;
-    font-weight: 400;
-}
-
-header p {
-    margin-top: 5px;
-    font-size: 1em;
-    font-style: italic;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.attendance table {
-    border-collapse: collapse;
-    width: 350px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(60,64,67,0.07);
-}
-
-.attendance th, .attendance td {
-    border: 1px solid #228b22;
-    padding: 12px;
-    text-align: center;
-}
-
-.attendance th {
-    background: #228b22;
-    color: #fff;
-}
-
-footer {
-    background: #228b22;
-    color: #fff;
-    text-align: center;
-    padding: 0.5em 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
