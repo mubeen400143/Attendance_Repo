@@ -10,7 +10,7 @@ body {
   background: linear-gradient(135deg, #f8fafc, #edf2f7);
   color: #1a2b33;
   line-height: 1.6;
-  padding-bottom: 60px; /* prevent footer overlap */
+  padding-bottom: 60px;
 }
 
 /* Header */
@@ -23,7 +23,6 @@ header {
 }
 
 header h1 {
-  margin: 0;
   font-size: 2.8em;
   letter-spacing: 1px;
   font-weight: 700;
@@ -53,11 +52,12 @@ main {
 .name-blocks {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: min-content; /* adapt row height to content */
   gap: 24px;
-  align-items: start; /* adjust card heights to content */
+  align-items: start;
 }
 
-/* Name Card */
+/* Card */
 .card {
   border-radius: 16px;
   padding: 20px;
@@ -77,9 +77,8 @@ main {
   margin-bottom: 12px;
 }
 
-/* Numbered List Style */
 .name-list {
-  list-style-type: decimal;
+  list-style-type: decimal; /* numbered list */
   margin-left: 20px;
   font-size: 1em;
 }
