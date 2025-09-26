@@ -3,21 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Fikr E Aakhirat</title>
+    <title>Dawat-E-Mehnat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <h1>Fikr E Aakhirat</h1>
-        <h2>Zimmedari</h2>
-        <p>Welcome to Ghatala Masjid! May today be filled with unity, peace, and the blessings of community.</p>
+        <div class="header-bar">
+            <div class="branding">
+                <h1>Dawat-E-Mehnat</h1>
+                <p>Welcome to Masjid war jamat of Masjid E Ghatala.</p>
+            </div>
+            <div class="header-actions">
+                <button id="themeToggle" class="btn btn-secondary icon-btn" type="button" title="Toggle dark / light mode" aria-label="Toggle dark or light theme">
+                    <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-moon" /></svg>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section class="name-blocks">
+    <!-- SVG Icon Sprite -->
+    <svg width="0" height="0" style="position:absolute;visibility:hidden" aria-hidden="true" focusable="false">
+        <symbol id="icon-add" viewBox="0 0 24 24"><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2h6Z"/></symbol>
+        <symbol id="icon-trash" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3h6l1 2h5v2h-2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7H4V5h5l1-2Zm8 4H7v12h10V7Zm-6 2h2v8h-2V9Z"/></symbol>
+        <symbol id="icon-pdf" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2Zm6.5 9H11v2h1.5a1 1 0 0 0 0-2Zm-3.5-2h3.5a3 3 0 0 1 0 6H11v3H9V9Zm8 0h-2v8h2V9Z"/></symbol>
+        <symbol id="icon-clear" viewBox="0 0 24 24"><path fill="currentColor" d="M5 5h14v2H5V5Zm2 4h10l-1 10H8L7 9Zm3-8h4l1 2H9l1-2Z"/></symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.5 2a9.5 9.5 0 0 0 0 19 9.4 9.4 0 0 0 5.9-2.1A8 8 0 0 1 10 4.1 9.5 9.5 0 0 0 12.5 2Z"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0-6 2 4h-4l2-4Zm0 16 2 4h-4l2-4ZM2 12l4-2v4l-4-2Zm16 0 4-2v4l-4-2ZM5.6 4.6l3.2 1.2L7 8.6 5.6 4.6Zm9.6 9.6 3.2 1.2L16.4 19l-1.2-4.8Zm3.2-9.6L17 8.6l-1.8-2.8 3.2-1.2ZM8.8 13.2 7.6 17l-3.2-1.2 4.4-2.6Z"/></symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.9.9l.3.3v.8l5 5 1.5-1.5-5-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></symbol>
+    </svg>
 
-            <div class="card">
+    <main>
+        <!-- Global Controls -->
+        <section id="controls" aria-label="List Controls">
+            <div class="control-card">
+                <div class="controls-bar">
+                    <h3>Create New List</h3>
+                    <div class="search-wrapper">
+                        <label for="searchInput" class="sr-only">Search</label>
+                        <div class="search-box">
+                            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-search"/></svg>
+                            <input type="text" id="searchInput" placeholder="Search names or list titles" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <form id="newListForm" class="stack-form">
+                    <label for="newListTitle">List Title</label>
+                    <input type="text" id="newListTitle" name="newListTitle" placeholder="Enter list title" required>
+                    <label for="newListItems">Initial Names (one per line)</label>
+                    <textarea id="newListItems" name="newListItems" rows="4" placeholder="Name 1\nName 2\nName 3"></textarea>
+                    <button type="submit" class="btn btn-primary icon-btn add-list-btn"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-add"/></svg><span class="btn-text">Add List</span></button>
+                </form>
+                <div class="actions-row">
+                    <button id="exportPdfBtn" class="btn btn-secondary icon-btn" type="button" title="Export lists to PDF"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-pdf"/></svg><span class="btn-text">Export PDF</span></button>
+                    <button id="clearAllBtn" class="btn btn-danger icon-btn" type="button" title="Remove all saved data (cannot be undone)"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-clear"/></svg><span class="btn-text">Clear Data</span></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="name-blocks" id="listsContainer">
+
+            <div class="card" data-seed="true">
                 <h1 class="first-name"><strong>Zahed Bhai</strong></h1>
                 <ul class="name-list">
                     <li>M Ayyub Sahab</li>
@@ -33,7 +80,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-seed="true">
                 <h1 class="first-name"><strong>Irfan Bhai & Hamed Bhai</strong></h1>
                 <ul class="name-list">
                     <li>Syed Majeed Basti</li>
@@ -55,7 +102,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-seed="true">
                 <h1 class="first-name"><strong>Shahbaz Sahab</strong></h1>
                 <ul class="name-list">
                     <li>Hussain Bhai</li>
@@ -65,7 +112,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-seed="true">
                 <h1 class="first-name"><strong>Basheer Sahab</strong></h1>
                 <ul class="name-list">
                     <li>Ibrahim</li>
@@ -75,7 +122,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-seed="true">
                 <h1 class="first-name"><strong>Rizwan Bhai</strong></h1>
                 <ul class="name-list">
                     <li>Fardeen</li>
@@ -94,7 +141,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-seed="true">
                 <h1 class="first-name"><strong>Furquan</strong></h1>
                 <ul class="name-list">
                     <li>Aquib</li>
@@ -106,7 +153,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-seed="true">
                 <h1 class="first-name"><strong>Altaf</strong></h1>
                 <ul class="name-list">
                     <li>Ibrahim</li>
@@ -115,7 +162,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-seed="true">
                 <h1 class="first-name"><strong>Dr Umair</strong></h1>
                 <ul class="name-list">
                     <li>Muzammil Bhi</li>
@@ -129,9 +176,12 @@
     </main>
 
     <footer>
-        <small>&copy; 2025 Ghatala Masjid. All rights reserved.</small>
+        <small>&copy; 2025 Masjid War Jamat. All rights reserved.</small>
     </footer>
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+    <!-- jsPDF CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-52G8JDH2E7xFEqBd9H1sI8v1J0aDyA6IuDcMz5NlUjH1cVZzTH0PxmCScKXbCgkV7S+GZQpTjsZtP0hK8DufQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
-
